@@ -29,7 +29,7 @@ const Page1 = () => {
   return (
     <div id='page1' onMouseMove={(e) => {
       mouseMoving(e)
-    }} className="h-screen  bg-white px-3 py-3">
+    }} className="h-screen bg-white px-3 py-3">
       <div id='page1-in'
         className="relative h-full w-full rounded-[50px] shadow-2xl shadow-gray-700 bg-cover bg-center bg-no-repeat p-6 flex flex-col justify-between"
         style={{ backgroundImage: `url(${bgImage})` }}
@@ -45,16 +45,23 @@ const Page1 = () => {
 
             <Link
               to='/about'
-              className='group mb-20 relative overflow-hidden flex items-center gap-3 pl-4 pr-4 py-2 rounded-full bg-black/20 backdrop-blur border border-white/20 text-white text-xs uppercase tracking-[0.3em] font-[anzo4] font-bold hover:pr-8 transition-all duration-500 cursor-pointer'
+              className='group relative overflow-hidden flex items-center gap-3 pl-4 pr-4 py-2 rounded-full bg-black/20 backdrop-blur border border-white/20 text-white text-xs uppercase tracking-[0.3em] font-[anzo4] font-bold hover:pr-8 transition-all duration-500 cursor-pointer'
             >
-              <span className='w-1.5 h-1.5 rounded-full bg-yellow-400 group-hover:bg-black transition-colors duration-500' />
+              {/* Yellow slide-up layer */}
+              <span className='absolute inset-0 bg-yellow-400 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out' />
+
+              {/* Dot */}
+              <span className='relative z-10 w-1.5 h-1.5 rounded-full bg-yellow-400 group-hover:bg-black transition-colors duration-500' />
+
+              {/* Text */}
               <span className='relative z-10 group-hover:text-black transition-colors duration-500'>
                 About Me
               </span>
+
+              {/* Arrow */}
               <span className='relative z-10 text-lg opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-black transition-all duration-500'>
                 →
               </span>
-              <span className='absolute inset-0 bg-yellow-400 translate-y-full group-hover:translate-y-0 transition-transform duration-500' />
             </Link>
           </div>
         </div>
@@ -66,7 +73,7 @@ const Page1 = () => {
         <Page1Bottom />
 
         {/* Bottom-Right: Name */}
-        <p className='absolute bottom-8 right-9 text-white text-LG uppercase tracking-[0.4em] font-[anzo4] font-bold'>
+        <p className='absolute bottom-8 right-9 text-white text-lg uppercase tracking-[0.4em] font-[anzo4] font-bold'>
           Rohit Bhati
         </p>
       </div>
